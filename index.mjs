@@ -6,10 +6,13 @@ import dotenv from 'dotenv';
 dotenv.config();
 console.log(process.env);
 
+//assigns port assigned by netlify
+const port = process.env.PORT || 3000;
+
 
 const app = express()
 app.use(cors())
-// http://localhost:3000
+
 app.get('/', async(req, res) => {
     console.log('Running in browser');
 
@@ -48,7 +51,6 @@ app.get('/', async(req, res) => {
     
 })
 
-
-app.listen(3000, () => {
-    console.log("Running");
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
 })
