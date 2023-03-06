@@ -4,7 +4,6 @@ import cors from "cors";                //
 import dotenv from 'dotenv';
 
 dotenv.config();
-console.log(process.env);
 
 //assigns port assigned by netlify
 const port = process.env.PORT || 3000;
