@@ -11,7 +11,9 @@ const port = process.env.PORT || 3000;
 
 
 const app = express()
-app.use(cors())
+app.use(cors({
+    origin: 'https://fascinating-gumdrop-6def11.netlify.app/'
+}))
 
 app.get('/', async(req, res) => {
     console.log('Running in browser');
