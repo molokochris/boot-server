@@ -11,9 +11,13 @@ const port = process.env.PORT || 3000;
 
 
 const app = express()
-app.use(cors({
-    origin: 'https://fascinating-gumdrop-6def11.netlify.app'
-}))
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://molokochris.github.io/time-traking-main/');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
+
 
 app.get('/', async(req, res) => {
     console.log('Running in browser');
